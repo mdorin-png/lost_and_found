@@ -2,7 +2,10 @@
 {% block title %}Notifications{% endblock %}
 
 {% block content %}
-<h1>Notifications</h1>
+<div class="page-heading">
+    <p class="eyebrow">Your activity</p>
+    <h1>Notifications</h1>
+</div>
 
 {% if student_id %}
     <p>Notifications for student ID {{ student_id }}.</p>
@@ -25,6 +28,6 @@
         <p>No notifications found.</p>
     {% endif %}
 {% else %}
-    <p>Enter your student ID to view notifications.</p>
+    <div class="empty-state"><h2>Student ID required</h2><p>Enter your student ID from the home page to view notifications.</p></div>
 {% endif %}
 {% endblock %}

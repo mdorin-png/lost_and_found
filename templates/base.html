@@ -3,17 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Lost and Found{% endblock %}</title>
+    <title>{% block title %}Lost and Found{% endblock %} | Campus Services</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<header>
-    <nav class="nav">
-        <a href="{{ url_for('controller.index') }}">Lost & Found</a>
-        <div>
-            <a href="{{ url_for('controller.report_lost') }}">Report Lost</a>
-            <a href="{{ url_for('controller.report_found') }}">Report Found</a>
-            <a href="{{ url_for('controller.search') }}">Search</a>
+<header class="site-header">
+    <div class="utility-bar">
+        <div class="header-content utility-content">
+            <span>Campus Services</span>
+            <span>Lost &amp; Found Support</span>
+        </div>
+    </div>
+    <nav class="nav header-content" aria-label="Main navigation">
+        <a class="brand" href="{{ url_for('controller.index') }}" aria-label="Campus Lost and Found home">
+            <span class="brand-mark" aria-hidden="true"><i></i><b></b></span>
+            <span>LOST<span>&amp;</span>FOUND</span>
+        </a>
+        <div class="nav-links">
+            <a href="{{ url_for('controller.report_lost') }}">Report lost</a>
+            <a href="{{ url_for('controller.report_found') }}">Report found</a>
+            <a href="{{ url_for('controller.search') }}">Search items</a>
         </div>
     </nav>
 </header>

@@ -3,8 +3,9 @@
 
 {% block content %}
 <section class="hero">
-    <h1>Campus Lost & Found</h1>
-    <p>Report lost or found items, search reports, and submit ownership claims.</p>
+    <p class="eyebrow">Campus services</p>
+    <h1>Find what matters.</h1>
+    <p class="hero-copy">Report an item, search active found-item reports, and reconnect with your belongings.</p>
 
     <div class="actions">
         <a class="button" href="{{ url_for('controller.report_lost') }}">Report Lost Item</a>
@@ -13,11 +14,16 @@
     </div>
 </section>
 
-<section>
-    <h2>Notifications</h2>
+<section class="support-section">
+    <div>
+        <p class="eyebrow">Updates</p>
+        <h2>Check your notifications</h2>
+        <p>Enter your student ID to see possible matches and claim updates.</p>
+    </div>
     <form action="{{ url_for('controller.notifications') }}" method="get" class="inline-form">
-        <label for="student_id">Student ID</label>
-        <input id="student_id" name="student_id" type="number" min="1" required>
+        <label for="student_id">Student ID
+            <input id="student_id" name="student_id" type="number" min="1" required>
+        </label>
         <button type="submit">View Notifications</button>
     </form>
 </section>

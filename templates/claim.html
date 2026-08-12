@@ -2,9 +2,12 @@
 {% block title %}Claim Found Item{% endblock %}
 
 {% block content %}
-<h1>Claim Found Item</h1>
+<div class="page-heading">
+    <p class="eyebrow">Ownership claim</p>
+    <h1>Claim found item</h1>
+</div>
 
-<section class="card">
+<section class="card item-summary">
     <h2>{{ found_report.description }}</h2>
     <p><strong>Category:</strong> {{ found_report.category }}</p>
     <p><strong>Location:</strong> {{ found_report.location }}</p>

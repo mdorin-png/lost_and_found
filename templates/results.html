@@ -2,7 +2,10 @@
 {% block title %}Search Results{% endblock %}
 
 {% block content %}
-<h1>Found Item Search</h1>
+<div class="page-heading">
+    <p class="eyebrow">Item search</p>
+    <h1>Found item results</h1>
+</div>
 
 <form method="post" action="{{ url_for('controller.search') }}" class="form compact">
     <label>Description
@@ -21,7 +24,7 @@
 </form>
 
 {% if results %}
-    <h2>Results</h2>
+    <h2 class="section-title">Matching reports</h2>
     {% for result in results %}
         <article class="card">
             <h3>{{ result.description }}</h3>
@@ -34,6 +37,6 @@
         </article>
     {% endfor %}
 {% else %}
-    <p>No matching open found-item reports were found.</p>
+    <div class="empty-state"><h2>No matching reports</h2><p>Try a broader description, category, or location.</p></div>
 {% endif %}
 {% endblock %}
