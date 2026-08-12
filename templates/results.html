@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h1>Found Item Search</h1>
+
+<form method="post" action="{{ url_for('controller.search') }}" class="form compact">
+    <label>Description
+        <input name="description" value="{{ search.description }}">
+    </label>
+
+    <label>Category
+        <input name="category" value="{{ search.category }}">
+    </label>
+
+    <label>Location
+        <input name="location" value="{{ search.location }}">
+    </label>
+
+    <button type="submit">Search</button>
+</form>
+
+{% if results %}
+    <h2>Results</h2>
+    {% for result in results %}
+        <article class="card">
+            <h3>{{ result.description }}</h3>
+            <p><strong>Category:</strong> {{ result.category }}</p>
+            <p><strong>Location:</strong> {{ result.location }}</p>
+            <p><strong>Reported by:</strong> {{ result.finder_name }}</p>
+            <a class="button" href="{{ url_for('controller.claim', found_report_id=result.found_report_id) }}">
+                Claim This Item
+            </a>
+        </article>
+    {% endfor %}
+{% else %}
+    <p>No matching open found-item reports were found.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Report Found Item{% endblock %}
+
+{% block content %}
+<h1>Report a Found Item</h1>
+<p>Describe the item and where you found it.</p>
+
+<form method="post" class="form">
+    <label>Name
+        <input name="student_name" value="{{ form.get('student_name', '') }}" required>
+    </label>
+
+    <label>Contact
+        <input name="contact" value="{{ form.get('contact', '') }}" required>
+    </label>
+
+    <label>Description
+        <textarea name="description" required>{{ form.get('description', '') }}</textarea>
+    </label>
+
+    <label>Category
+        <input name="category" value="{{ form.get('category', '') }}" placeholder="e.g. Backpack" required>
+    </label>
+
+    <label>Location
+        <input name="location" value="{{ form.get('location', '') }}" placeholder="e.g. Library" required>
+    </label>
+
+    <button type="submit">Submit Found Report</button>
+</form>
+{% endblock %}

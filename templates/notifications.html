@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Notifications{% endblock %}
+
+{% block content %}
+<h1>Notifications</h1>
+
+{% if student_id %}
+    <p>Notifications for student ID {{ student_id }}.</p>
+
+    {% if notifications %}
+        {% for notification in notifications %}
+            <article class="card {% if notification.is_read %}read{% endif %}">
+                <p>{{ notification.message }}</p>
+                {% if not notification.is_read %}
+                    <form method="post">
+                        <input type="hidden" name="notification_id" value="{{ notification.id }}">
+                        <button type="submit">Mark as Read</button>
+                    </form>
+                {% else %}
+                    <small>Read</small>
+                {% endif %}
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>No notifications found.</p>
+    {% endif %}
+{% else %}
+    <p>Enter your student ID to view notifications.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Claim Found Item{% endblock %}
+
+{% block content %}
+<h1>Claim Found Item</h1>
+
+<section class="card">
+    <h2>{{ found_report.description }}</h2>
+    <p><strong>Category:</strong> {{ found_report.category }}</p>
+    <p><strong>Location:</strong> {{ found_report.location }}</p>
+</section>
+
+<form method="post" class="form">
+    <label>Name
+        <input name="student_name" value="{{ form.get('student_name', '') }}" required>
+    </label>
+
+    <label>Contact
+        <input name="contact" value="{{ form.get('contact', '') }}" required>
+    </label>
+
+    <label>Identifying Information
+        <textarea name="identifying_information"
+                  placeholder="Provide information that can help verify ownership."
+                  required>{{ form.get('identifying_information', '') }}</textarea>
+    </label>
+
+    <button type="submit">Submit Claim</button>
+</form>
+{% endblock %}

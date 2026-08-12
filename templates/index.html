@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Lost & Found{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Campus Lost & Found</h1>
+    <p>Report lost or found items, search reports, and submit ownership claims.</p>
+
+    <div class="actions">
+        <a class="button" href="{{ url_for('controller.report_lost') }}">Report Lost Item</a>
+        <a class="button" href="{{ url_for('controller.report_found') }}">Report Found Item</a>
+        <a class="button secondary" href="{{ url_for('controller.search') }}">Search Found Items</a>
+    </div>
+</section>
+
+<section>
+    <h2>Notifications</h2>
+    <form action="{{ url_for('controller.notifications') }}" method="get" class="inline-form">
+        <label for="student_id">Student ID</label>
+        <input id="student_id" name="student_id" type="number" min="1" required>
+        <button type="submit">View Notifications</button>
+    </form>
+</section>
+{% endblock %}
